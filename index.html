@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yash Jain | Data Engineer</title>
+  <meta name="description" content="Portfolio of Yash Jain - Snowflake Certified Data Engineer specializing in Medallion Lakehouse Architectures, Snowpipe, Streams & Tasks, dbt, and Cloud Analytics Pipelines.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css?v=3.1">
+  <style>
+    /* Ensure Header always seamlessly matches light theme background */
+    header, .glass-nav {
+      background-color: #ffffff !important;
+      background: #ffffff !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+    }
+  </style>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#f8fafc',
+              surface: '#ffffff',
+              subtle: '#f1f5f9',
+              border: '#e2e8f0',
+              sky: '#0284c7',
+              indigo: '#4f46e5',
+              emerald: '#059669',
+              amber: '#d97706',
+              rose: '#e11d48'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-slate-700 antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-xs glass-nav" style="background-color: #ffffff !important; border-bottom: 1px solid #e2e8f0 !important;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center font-bold text-white text-sm shadow-md shadow-sky-600/20 group-hover:scale-105 transition-transform">
+          YJ
+        </div>
+        <div>
+          <span class="font-bold text-slate-900 tracking-tight block text-base group-hover:text-sky-600 transition-colors">Yash Jain</span>
+          <span class="text-xs text-slate-500 font-mono">Snowflake Data Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#about" class="hover:text-sky-600 transition-colors">Overview</a>
+        <a href="#skills" class="hover:text-sky-600 transition-colors">Technical Stack</a>
+        <a href="#projects" class="hover:text-sky-600 transition-colors">Projects & Architecture</a>
+        <a href="#resume" class="hover:text-sky-600 transition-colors">Resume</a>
+        <a href="#contact" class="hover:text-sky-600 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden md:flex items-center gap-3">
+        <button class="open-resume-modal px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors">
+          Preview PDF
+        </button>
+        <a href="assets/resumes/Yash_Jain_Data_Engineer.pdf" download class="px-4 py-2 text-xs font-semibold rounded-lg bg-sky-600 hover:bg-sky-500 text-white shadow-sm shadow-sky-600/20 transition-all">
+          Download Resume
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-5 py-5 space-y-3.5 text-sm shadow-lg">
+      <a href="#about" class="block py-1 text-slate-600 hover:text-sky-600 font-medium">Overview</a>
+      <a href="#skills" class="block py-1 text-slate-600 hover:text-sky-600 font-medium">Technical Stack</a>
+      <a href="#projects" class="block py-1 text-slate-600 hover:text-sky-600 font-medium">Projects & Architecture</a>
+      <a href="#resume" class="block py-1 text-slate-600 hover:text-sky-600 font-medium">Resume</a>
+      <a href="#contact" class="block py-1 text-sky-600 font-semibold">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (METRICS REMOVED AS REQUESTED) -->
+  <section id="about" class="relative pt-36 pb-20 md:pt-44 md:pb-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        
+        <!-- Eyebrow Badge (Light Mode Style) -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-semibold tracking-wide mb-6 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></span>
+          Snowflake Certified Data Engineer
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+          Architecting Resilient <span class="text-gradient">Medallion Lakehouses</span> & Near Real-Time Pipelines.
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+          Data Engineer with <strong>3+ years of enterprise experience</strong> designing scalable cloud lakehouses, automated streaming ingestion (<span class="text-sky-700 font-medium">Snowpipe, Streams, Tasks</span>), Change Data Capture (CDC), and Kimball Star Schema data marts that power business-critical analytical systems.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#projects" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-2">
+            <span>View Projects & Architecture</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <button class="open-resume-modal px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span>Preview Resume</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL STACK SECTION -->
+  <section id="skills" class="py-20 bg-slate-100/70 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-xs font-semibold uppercase tracking-wider mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span>
+          Core Competencies
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Production Technical Arsenal
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base max-w-2xl">
+          Grounded in modern cloud data platforms, dimensional modeling, automated orchestration, and enterprise semantic layers.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Category 1 -->
+        <div class="light-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 mb-4">
+              <!-- Snowflake Logo SVG -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2V22M2 12H22M4.93 4.93L19.07 19.07M4.93 19.07L19.07 4.93" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="12" cy="12" r="2.5" fill="#0284c7"/>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1.5">Data Platforms & Storage</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">Scalable cloud lakehouse architecture, external stages, and micro-partitions.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-sky-800 font-mono font-medium">Snowflake</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">AWS S3</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">External Stages</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Micro-partitions</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Apache Iceberg</span>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="light-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-600 mb-4">
+              <!-- EventBridge / CDC SVG -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="6" r="3" fill="#e11d48"/>
+                <circle cx="18" cy="6" r="3" fill="#db2777"/>
+                <circle cx="12" cy="18" r="3.5" fill="#9333ea"/>
+                <path d="M8 8L10.5 15M16 8L13.5 15" stroke="#db2777" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M9 6H15" stroke="#e11d48" stroke-width="1.8" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1.5">Ingestion & CDC</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">Continuous serverless ingestion and Change Data Capture stream tracking.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-pink-800 font-mono font-medium">Snowpipe</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Snowflake Streams</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Scheduled Tasks</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Dynamic Tables</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">AWS EventBridge</span>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="light-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-orange-600 mb-4">
+              <!-- dbt SVG -->
+              <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L32 14V26L20 33L8 26V14L20 7Z" stroke="#ea580c" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M20 7V20M20 20L32 14M20 20L8 14" stroke="#ea580c" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1.5">Modeling & Transformation</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">Kimball Star Schema modeling, historical dimension states, and dbt models.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-orange-800 font-mono font-medium">Medallion Flow</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Star Schema</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">SCD Type 1 & 2</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">dbt Core</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Advanced SQL</span>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="light-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 mb-4">
+              <!-- Airflow SVG -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#0d9488" fill-opacity="0.12"/>
+                <path d="M12 4C12 4 15 9 15 11C15 12.6 13.6 14 12 14C10.4 14 9 12.6 9 11C9 9 12 4 12 4Z" fill="#0284c7"/>
+                <path d="M20 12C20 12 15 15 13 15C11.4 15 10 13.6 10 12C10 10.4 11.4 9 13 9C15 9 20 12 20 12Z" fill="#0d9488"/>
+                <path d="M12 20C12 20 9 15 9 13C9 11.4 10.4 10 12 10C13.6 10 15 11.4 15 13C15 15 12 20 12 20Z" fill="#059669"/>
+                <path d="M4 12C4 12 9 9 11 9C12.6 9 14 10.4 14 12C14 13.6 12.6 15 11 15C9 15 4 12 4 12Z" fill="#e11d48"/>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1.5">Orchestration & FinOps</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-5">Automated execution, query pruning, and warehouse credit governance.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-teal-800 font-mono font-medium">Apache Airflow</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Python 3.x</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Clustering Keys</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Zero-Copy Clone</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-700 font-mono">Time Travel</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS & HIGH-LEVEL ARCHITECTURES -->
+  <section id="projects" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 border border-indigo-200 text-indigo-800 text-xs font-semibold uppercase tracking-wider mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
+          Enterprise Implementations
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Featured Engineering Projects
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base max-w-2xl">
+          End-to-end architectures covering real-time streaming, CDC state management, and modern dimensional marts.
+        </p>
+      </div>
+
+      <div class="space-y-20">
+
+        <!-- ================= PROJECT 1 ================= -->
+        <article class="light-card p-6 sm:p-9 rounded-3xl arch-diagram-container">
+          
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+              Project 01 &bull; Streaming Lakehouse
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-500 font-mono font-medium">
+              <span>Snowflake</span>
+              <span>&bull;</span>
+              <span>Snowpipe</span>
+              <span>&bull;</span>
+              <span>Streams & Tasks</span>
+            </div>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-tight">
+            Real-Time IoT & Telemetry Medallion Lakehouse
+          </h3>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-4xl">
+            Engineered an automated Medallion lakehouse to process continuous event payloads from globally distributed hardware sensors, transitioning legacy 6-hour batch bottlenecks to sub-15 minute near real-time availability.
+          </p>
+
+          <!-- PICTORIAL & ANIMATED ARCHITECTURE CANVAS (LIGHT WORKBENCH STYLE) -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 mb-10 shadow-xs">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-7 flex-wrap gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Interactive Pipeline Architecture</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-sky-800 border border-slate-200 shadow-2xs font-medium">
+                  Target SLA: &lt; 15m
+                </span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-slate-500 border border-slate-200 hidden sm:inline-block">
+                  Click node to inspect
+                </span>
+              </div>
+            </div>
+
+            <!-- Horizontal Flow Nodes -->
+            <div class="overflow-x-auto pb-4">
+              <div class="min-w-[860px] flex items-center justify-between gap-1">
+                
+                <!-- Node 1: AWS S3 -->
+                <div class="arch-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_s3">
+                  <div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M38 15V33C38 37.4 31.7 41 24 41C16.3 41 10 37.4 10 33V15" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+                      <ellipse cx="24" cy="13" rx="14" ry="6" fill="#f97316" stroke="#ea580c" stroke-width="3"/>
+                      <path d="M10 24C10 27.5 16.3 30.5 24 30.5C31.7 30.5 38 27.5 38 24" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="3 3"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">AWS S3</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Raw Telemetry</span>
+                  <span class="text-[9px] text-amber-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-amber-100 font-medium">Stage</span>
+                </div>
+
+                <!-- Animated Flow Connector 1 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">ObjectCreated</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e11d48" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#e11d48">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 2: AWS EventBridge (Active Default) -->
+                <div class="arch-node active-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_eventbridge">
+                  <div class="w-11 h-11 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="6" y="8" width="36" height="32" rx="6" fill="#a855f7" fill-opacity="0.15" stroke="#db2777" stroke-width="2.5"/>
+                      <circle cx="16" cy="18" r="3.5" fill="#db2777"/>
+                      <circle cx="32" cy="18" r="3.5" fill="#9333ea"/>
+                      <circle cx="24" cy="30" r="4" fill="#a855f7"/>
+                      <path d="M18 20L22 28M30 20L26 28" stroke="#db2777" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M16 18H32" stroke="#9333ea" stroke-width="2" stroke-dasharray="2 2"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">EventBridge</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">SQS Notification</span>
+                  <span class="text-[9px] text-pink-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-pink-100 font-medium">&lt; 50ms</span>
+                </div>
+
+                <!-- Animated Flow Connector 2 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Queue Trigger</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#0284c7" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#0284c7">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 3: Snowpipe -->
+                <div class="arch-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_snowpipe">
+                  <div class="w-11 h-11 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 8L12 12L20 8M4 16L12 20L20 16M4 8L12 4L20 8" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="12" cy="12" r="2" fill="#0284c7"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Snowpipe</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Auto-Ingest Pipe</span>
+                  <span class="text-[9px] text-sky-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-sky-100 font-medium">Serverless</span>
+                </div>
+
+                <!-- Animated Flow Connector 3 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Micro-batch</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#0284c7" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#0284c7">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 4: Bronze Zone -->
+                <div class="arch-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_bronze">
+                  <div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-2.5">
+                    <span class="font-mono text-xs font-bold text-amber-700">BRZ</span>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Bronze Table</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">VARIANT Schema</span>
+                  <span class="text-[9px] text-amber-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-amber-100 font-medium">Raw Zone</span>
+                </div>
+
+                <!-- Animated Flow Connector 4 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Table Stream</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#4f46e5" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#4f46e5">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 5: Silver Zone -->
+                <div class="arch-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_silver">
+                  <div class="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2V22M2 12H22M4.93 4.93L19.07 19.07M4.93 19.07L19.07 4.93" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="12" cy="12" r="2" fill="#4f46e5"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Silver Zone</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">SCD Type 2 CDC</span>
+                  <span class="text-[9px] text-indigo-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-indigo-100 font-medium">Streams/Tasks</span>
+                </div>
+
+                <!-- Animated Flow Connector 5 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Dynamic Lag</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#059669" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#059669">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 6: Gold Zone -->
+                <div class="arch-node w-36 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p1" data-node="p1_gold">
+                  <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-2.5">
+                    <span class="font-mono text-xs font-bold text-emerald-700">GLD</span>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Gold Mart</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Dynamic Tables</span>
+                  <span class="text-[9px] text-emerald-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-emerald-100 font-medium">Star Schema</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- LIVE INTERACTIVE INSPECTOR PANEL FOR PROJECT 1 -->
+            <div id="inspector-p1" class="mt-6 pt-6 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              
+              <div class="lg:col-span-5 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="inspector-badge px-2.5 py-0.5 text-xs font-semibold rounded-full border bg-pink-50 text-pink-800 border-pink-200">
+                    Asynchronous Message Router
+                  </span>
+                  <span class="inspector-sla text-xs font-mono text-slate-500 font-medium">Zero Latency (&lt; 50ms)</span>
+                </div>
+                <h4 class="inspector-title text-lg font-bold text-slate-900">
+                  AWS EventBridge & SQS
+                </h4>
+                <div class="inspector-tech text-xs text-sky-700 font-mono font-medium">
+                  Amazon Web Services // Event-Driven Broker
+                </div>
+                <p class="inspector-desc text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Captures S3 ObjectCreated events and routes notifications through Amazon EventBridge / SQS queue directly to Snowpipe with guaranteed at-least-once delivery.
+                </p>
+              </div>
+
+              <!-- High Contrast Code Container -->
+              <div class="lg:col-span-7 bg-[#0f172a] p-4 rounded-xl border border-slate-800 shadow-md">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] font-mono text-slate-400">
+                  <span>Configuration / DDL Specification</span>
+                  <span class="text-sky-400">Active Node</span>
+                </div>
+                <pre class="text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed max-h-[160px]"><code class="inspector-code">{
+  "source": ["aws.s3"],
+  "detail-type": ["Object Created"],
+  "detail": {
+    "bucket": { "name": ["telemetry-streaming-ingest-eu-1"] },
+    "object": { "key": [{ "prefix": "scanner_logs/" }] }
+  }
+}</code></pre>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- IMPLEMENTATION STEPS (LIGHT THEME CARDS) -->
+          <div>
+            <div class="flex items-center gap-2.5 mb-6">
+              <div class="w-8 h-8 rounded-lg bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="text-base font-bold uppercase tracking-wider text-slate-900">
+                Implementation Walkthrough
+              </h4>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <!-- Step 1 -->
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-sky-300">1</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Storage Integration & Snowpipe Setup</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Configured secure cross-account AWS IAM role integrations to mount S3 buckets, enabling event-driven serverless Snowpipe ingestion via EventBridge & SQS without idle compute costs.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-sky-300">2</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Bronze Schema-on-Read Ingestion</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Ingested raw untransformed JSON payloads into append-only tables with Snowflake <code class="text-sky-700 font-mono bg-sky-50 px-1 py-0.5 rounded">VARIANT</code> datatypes, capturing complete file lineage and load timestamps.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-sky-300">3</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Change Data Capture & SCD Type 2</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Created append-only Snowflake Streams on Bronze tables, executing atomic <code class="text-sky-700 font-mono bg-sky-50 px-1 py-0.5 rounded">MERGE</code> tasks to maintain historical device state tracking via SCD Type 2 (<code class="text-slate-600 font-mono">valid_from</code>, <code class="text-slate-600 font-mono">valid_to</code>, <code class="text-slate-600 font-mono">is_current</code>).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-sky-300">4</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Gold Marts & Automatic Clustering</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Modeled high-performance dimensional star schema marts with clustering keys on high-cardinality filters and automated materialization using Dynamic Tables, cutting query latency by 40%.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ================= PROJECT 2 ================= -->
+        <article class="light-card p-6 sm:p-9 rounded-3xl arch-diagram-container">
+          
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              Project 02 &bull; Modern ELT & Modeling
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-500 font-mono font-medium">
+              <span>dbt Core</span>
+              <span>&bull;</span>
+              <span>Snowflake</span>
+              <span>&bull;</span>
+              <span>Star Schema</span>
+            </div>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-tight">
+            Enterprise Dimensional Data Mart & dbt ELT Pipeline
+          </h3>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-4xl">
+            Designed a modular, governed ELT transformation framework replacing fragile legacy procedures with version-controlled dbt Core models, automated schema testing, and optimized Star Schema dimensional marts.
+          </p>
+
+          <!-- PICTORIAL & ANIMATED ARCHITECTURE CANVAS 2 -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 mb-10 shadow-xs">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-7 flex-wrap gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Interactive ELT & Modeling Pipeline</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-blue-800 border border-slate-200 shadow-2xs font-medium">
+                  Automated Testing Gate
+                </span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-slate-500 border border-slate-200 hidden sm:inline-block">
+                  Click node to inspect
+                </span>
+              </div>
+            </div>
+
+            <!-- Flow Nodes -->
+            <div class="overflow-x-auto pb-4">
+              <div class="min-w-[860px] flex items-center justify-between gap-1">
+                
+                <!-- Node 1: Staging Views -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p2" data-node="p2_staging">
+                  <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6H20M4 12H20M4 18H20" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Staging Views</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">stg_ Abstractions</span>
+                  <span class="text-[9px] text-blue-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-blue-100 font-medium">Zero-Storage</span>
+                </div>
+
+                <!-- Connector 1 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">ref()</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#ea580c" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#ea580c">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 2: dbt Core (Active Default) -->
+                <div class="arch-node active-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p2" data-node="p2_dbt">
+                  <div class="w-11 h-11 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 7L32 14V26L20 33L8 26V14L20 7Z" stroke="#ea580c" stroke-width="2.5" stroke-linejoin="round"/>
+                      <path d="M20 7V20M20 20L32 14M20 20L8 14" stroke="#ea580c" stroke-width="2.5"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">dbt Core Engine</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Incremental DAGs</span>
+                  <span class="text-[9px] text-orange-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-orange-100 font-medium">is_incremental()</span>
+                </div>
+
+                <!-- Connector 2 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">dbt test</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#9333ea" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#9333ea">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 3: Quality Gate -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p2" data-node="p2_testing">
+                  <div class="w-11 h-11 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 12L11 14L15 10M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="#9333ea" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Quality Gate</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Schema Contracts</span>
+                  <span class="text-[9px] text-purple-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-purple-100 font-medium">Unique & FK</span>
+                </div>
+
+                <!-- Connector 3 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Publish</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#059669" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#059669">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 4: Kimball Star Schema -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p2" data-node="p2_marts">
+                  <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="14" y="14" width="12" height="12" rx="2.5" fill="#059669" fill-opacity="0.2" stroke="#059669" stroke-width="2"/>
+                      <circle cx="8" cy="8" r="4.5" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="1.8"/>
+                      <circle cx="32" cy="8" r="4.5" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="1.8"/>
+                      <circle cx="8" cy="32" r="4.5" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="1.8"/>
+                      <circle cx="32" cy="32" r="4.5" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="1.8"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Star Schema Mart</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Facts & Dimensions</span>
+                  <span class="text-[9px] text-emerald-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-emerald-100 font-medium">Clustered Mart</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- INSPECTOR PANEL FOR PROJECT 2 -->
+            <div id="inspector-p2" class="mt-6 pt-6 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              
+              <div class="lg:col-span-5 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="inspector-badge px-2.5 py-0.5 text-xs font-semibold rounded-full border bg-orange-50 text-orange-800 border-orange-200">
+                    Modular Transformation
+                  </span>
+                  <span class="inspector-sla text-xs font-mono text-slate-500 font-medium">Incremental Micro-batches</span>
+                </div>
+                <h4 class="inspector-title text-lg font-bold text-slate-900">
+                  dbt Core Modular DAG Models
+                </h4>
+                <div class="inspector-tech text-xs text-sky-700 font-mono font-medium">
+                  dbt Core // Incremental SQL Pipelines
+                </div>
+                <p class="inspector-desc text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Transforms modular SQL models with merge strategies to avoid full table scans on multi-million row datasets.
+                </p>
+              </div>
+
+              <div class="lg:col-span-7 bg-[#0f172a] p-4 rounded-xl border border-slate-800 shadow-md">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] font-mono text-slate-400">
+                  <span>Incremental Model DDL / Configuration</span>
+                  <span class="text-orange-400">Active Node</span>
+                </div>
+                <pre class="text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed max-h-[160px]"><code class="inspector-code">{{ config(
+    materialized='incremental',
+    unique_key='order_id',
+    incremental_strategy='merge'
+) }}
+
+SELECT * FROM {{ ref('stg_orders') }}
+{% if is_incremental() %}
+  WHERE order_timestamp > (SELECT MAX(order_timestamp) FROM {{ this }})
+{% endif %}</code></pre>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- IMPLEMENTATION STEPS 2 -->
+          <div>
+            <div class="flex items-center gap-2.5 mb-6">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="text-base font-bold uppercase tracking-wider text-slate-900">
+                Implementation Walkthrough
+              </h4>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-blue-300">1</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Staging & View Layer Abstraction</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Built standardized staging views (<code class="text-blue-700 font-mono bg-blue-50 px-1 py-0.5 rounded">stg_</code>) casting raw columns, renaming fields to consistent business conventions, and establishing clean typing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-blue-300">2</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Incremental dbt Modeling</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Implemented incremental materialization strategies with <code class="text-blue-700 font-mono bg-blue-50 px-1 py-0.5 rounded">is_incremental()</code> filters to process only altered records, minimizing unnecessary table scans.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-blue-300">3</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Kimball Dimensional Architecture</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Structured clean Star Schemas comprising central Fact tables with numeric additive metrics and surrogate-keyed Dimension tables for simplified self-service reporting.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-blue-300">4</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Data Quality & Schema Contract Enforcement</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Implemented automated dbt tests for primary key uniqueness, referential integrity, column nullability, and source freshness alerts before tables are published.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ================= PROJECT 3 ================= -->
+        <article class="light-card p-6 sm:p-9 rounded-3xl arch-diagram-container">
+          
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Project 03 &bull; FinOps & Orchestration
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-500 font-mono font-medium">
+              <span>Airflow</span>
+              <span>&bull;</span>
+              <span>FinOps</span>
+              <span>&bull;</span>
+              <span>Zero-Copy Clone</span>
+            </div>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-tight">
+            Automated Pipeline Orchestration & Snowflake FinOps Governance
+          </h3>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-4xl">
+            Engineered enterprise DAG orchestration in Apache Airflow coupled with rigorous Snowflake FinOps optimizations, reducing virtual warehouse spend by 30% while guaranteeing pipeline SLAs and zero-cost staging clones.
+          </p>
+
+          <!-- PICTORIAL & ANIMATED ARCHITECTURE CANVAS 3 -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 mb-10 shadow-xs">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-7 flex-wrap gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Interactive FinOps & Orchestration Architecture</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-emerald-800 border border-slate-200 shadow-2xs font-medium">
+                  30% Compute Cut
+                </span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white text-slate-500 border border-slate-200 hidden sm:inline-block">
+                  Click node to inspect
+                </span>
+              </div>
+            </div>
+
+            <!-- Flow Nodes -->
+            <div class="overflow-x-auto pb-4">
+              <div class="min-w-[860px] flex items-center justify-between gap-1">
+                
+                <!-- Node 1: Airflow (Active Default) -->
+                <div class="arch-node active-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p3" data-node="p3_airflow">
+                  <div class="w-11 h-11 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="10" fill="#0d9488" fill-opacity="0.12"/>
+                      <path d="M12 4C12 4 15 9 15 11C15 12.6 13.6 14 12 14C10.4 14 9 12.6 9 11C9 9 12 4 12 4Z" fill="#0284c7"/>
+                      <path d="M20 12C20 12 15 15 13 15C11.4 15 10 13.6 10 12C10 10.4 11.4 9 13 9C15 9 20 12 20 12Z" fill="#0d9488"/>
+                      <path d="M12 20C12 20 9 15 9 13C9 11.4 10.4 10 12 10C13.6 10 15 11.4 15 13C15 15 12 20 12 20Z" fill="#059669"/>
+                      <path d="M4 12C4 12 9 9 11 9C12.6 9 14 10.4 14 12C14 13.6 12.6 15 11 15C9 15 4 12 4 12Z" fill="#e11d48"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Apache Airflow</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Python DAG Engine</span>
+                  <span class="text-[9px] text-teal-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-teal-100 font-medium">SLA Sensors</span>
+                </div>
+
+                <!-- Connector 1 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Trigger</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#0284c7" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#0284c7">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 2: Dedicated Warehouses -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p3" data-node="p3_warehouses">
+                  <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="6" y="8" width="28" height="8" rx="2" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="2"/>
+                      <rect x="6" y="19" width="28" height="8" rx="2" fill="#4f46e5" fill-opacity="0.15" stroke="#4f46e5" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Virtual Warehouses</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Isolated Compute</span>
+                  <span class="text-[9px] text-blue-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-blue-100 font-medium">60s Auto-Suspend</span>
+                </div>
+
+                <!-- Connector 2 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Prune</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#d97706" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#d97706">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 3: FinOps Tuning -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p3" data-node="p3_finops">
+                  <div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">FinOps Tuning</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Clustering & Profiling</span>
+                  <span class="text-[9px] text-amber-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-amber-100 font-medium">Zero Spilling</span>
+                </div>
+
+                <!-- Connector 3 -->
+                <div class="flex-1 flex flex-col items-center px-1">
+                  <span class="text-[10px] font-mono text-slate-500 font-medium mb-1">Clone</span>
+                  <div class="w-full flex items-center">
+                    <div class="flex-1 relative h-3 flex items-center">
+                      <svg class="w-full h-3 overflow-visible" viewBox="0 0 100 12" fill="none" preserveAspectRatio="none">
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#e2e8f0" stroke-width="2"/>
+                        <line x1="0" y1="6" x2="100" y2="6" stroke="#4f46e5" stroke-width="2.2" class="animate-stream"/>
+                      </svg>
+                    </div>
+                    <svg class="w-3.5 h-3.5 shrink-0 -ml-1 animate-arrow" viewBox="0 0 12 12" fill="#4f46e5">
+                      <path d="M2.5 2L9.5 6L2.5 10V2Z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Node 4: Zero-Copy Clone -->
+                <div class="arch-node w-44 p-3.5 rounded-xl text-center flex flex-col items-center" data-project="p3" data-node="p3_clone">
+                  <div class="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center mb-2.5">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="9" y="9" width="13" height="13" rx="2" stroke="#4f46e5" stroke-width="2"/>
+                      <path d="M5 15H4C2.9 15 2 14.1 2 13V4C2 2.9 2.9 2 4 2H13C14.1 2 15 2.9 15 4V5" stroke="#4f46e5" stroke-width="1.8"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-900">Zero-Copy Clone</span>
+                  <span class="text-[10px] text-slate-500 font-mono mt-0.5">Instant Dev Sandbox</span>
+                  <span class="text-[9px] text-indigo-800 font-mono mt-1.5 px-1.5 py-0.5 rounded bg-indigo-100 font-medium">90d Time Travel</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- INSPECTOR PANEL FOR PROJECT 3 -->
+            <div id="inspector-p3" class="mt-6 pt-6 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              
+              <div class="lg:col-span-5 space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="inspector-badge px-2.5 py-0.5 text-xs font-semibold rounded-full border bg-teal-50 text-teal-800 border-teal-200">
+                    Enterprise Scheduling
+                  </span>
+                  <span class="inspector-sla text-xs font-mono text-slate-500 font-medium">Automated Retries & SLAs</span>
+                </div>
+                <h4 class="inspector-title text-lg font-bold text-slate-900">
+                  Apache Airflow Orchestrator
+                </h4>
+                <div class="inspector-tech text-xs text-sky-700 font-mono font-medium">
+                  Apache Airflow // Python DAG Workflow
+                </div>
+                <p class="inspector-desc text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Centrally orchestrates dependencies across extraction, transformation, data validation gates, and alerting sensors with full lineage tracking.
+                </p>
+              </div>
+
+              <div class="lg:col-span-7 bg-[#0f172a] p-4 rounded-xl border border-slate-800 shadow-md">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] font-mono text-slate-400">
+                  <span>DAG Execution & Operator Specification</span>
+                  <span class="text-teal-400">Active Node</span>
+                </div>
+                <pre class="text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed max-h-[160px]"><code class="inspector-code">from airflow import DAG
+from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
+
+with DAG('lakehouse_curation_daily', schedule_interval='@daily') as dag:
+    run_staging = SnowflakeOperator(task_id='run_staging', sql='CALL proc_staging();')
+    run_dbt = SnowflakeOperator(task_id='run_dbt', sql='CALL proc_dbt_run();')
+    run_staging >> run_dbt</code></pre>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- IMPLEMENTATION STEPS 3 -->
+          <div>
+            <div class="flex items-center gap-2.5 mb-6">
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="text-base font-bold uppercase tracking-wider text-slate-900">
+                Implementation Walkthrough
+              </h4>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-emerald-300">1</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Orchestration & Failure Alerts</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Configured Airflow DAGs with custom Python operators and sensors to manage pipeline dependencies, automated retries, and webhook notifications for SLA alerts.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-emerald-300">2</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Query Profiler & Partition Pruning</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Analyzed slow queries via Snowflake Query Profiler, eliminated disk spilling by right-sizing virtual warehouses, and configured optimal clustering keys.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-emerald-300">3</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Warehouse FinOps Policies</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Separated workloads across dedicated virtual warehouses with aggressive 60-second auto-suspend and auto-resume policies, cutting monthly credit consumption by 30%.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/90 hover:border-slate-300 hover:bg-white transition-colors flex gap-4 items-start">
+                <span class="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-emerald-300">4</span>
+                <div>
+                  <h5 class="text-sm font-bold text-slate-900 mb-1">Zero-Copy Cloning & Time Travel</h5>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Leveraged metadata-only Zero-Copy Cloning to create exact production replicas for testing without storage costs, alongside Time Travel for instant disaster recovery.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section id="resume" class="py-20 bg-slate-100/70 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="light-card p-8 sm:p-10 rounded-3xl max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-xs font-semibold uppercase tracking-wider mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span>
+            Candidate Dossier
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-1.5 tracking-tight">Data Engineer Resume</h3>
+          <p class="text-xs sm:text-sm text-slate-600">Complete enterprise history, certifications, and technical accomplishments.</p>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button class="open-resume-modal flex-1 sm:flex-none px-5 py-3 text-xs font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors">
+            Preview PDF
+          </button>
+          <a href="assets/resumes/Yash_Jain_Data_Engineer.pdf" download class="flex-1 sm:flex-none px-5 py-3 text-xs font-semibold rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow-sm shadow-sky-600/20 transition-all text-center">
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT & FOOTER -->
+  <footer id="contact" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">Let's Connect</h2>
+        <p class="text-slate-600 text-sm sm:text-base">Open to Data Engineer and Cloud Data Engineering opportunities.</p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm mb-14">
+        <a href="mailto:yashjain698@gmail.com" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 text-slate-700 hover:text-sky-600 transition-all shadow-2xs">
+          <div class="w-7 h-7 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span class="font-medium">yashjain698@gmail.com</span>
+        </a>
+
+        <a href="tel:+918459851641" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-300 text-slate-700 hover:text-emerald-600 transition-all shadow-2xs">
+          <div class="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+          </div>
+          <span class="font-medium">+91 8459851641</span>
+        </a>
+
+        <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 shadow-2xs">
+          <div class="w-7 h-7 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <span class="font-medium">Pune, India</span>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-slate-400 font-mono">
+        &copy; 2026 Yash Jain. Designed & Engineered with Medallion Architecture.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 w-full max-w-4xl h-[88vh] rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-slate-900">Yash Jain &mdash; Data Engineer Resume</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="assets/resumes/Yash_Jain_Data_Engineer.pdf" download class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-sky-600 hover:bg-sky-500 text-white shadow-sm">
+            Download PDF
+          </a>
+          <button id="close-resume-modal" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 bg-slate-100">
+        <iframe src="assets/resumes/Yash_Jain_Data_Engineer.pdf" class="w-full h-full border-0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
